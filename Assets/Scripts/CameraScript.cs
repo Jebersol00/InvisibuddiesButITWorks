@@ -11,6 +11,9 @@ public class CameraScript : MonoBehaviour
     public float cameraUpperHeightBound = 10;
     public float cameraLowerHeightBound = 10;
     private Vector3 cameraStartPosition;
+    private Vector3 offset;
+    private Transform selectedWallTransform;
+    public AudioSource audioSource;
 
     private void Awake()
     {
@@ -24,6 +27,15 @@ public class CameraScript : MonoBehaviour
 
     // Update is called once per frame
     void Update()
+    {
+        // Handle camera control
+        UpdateCameraControl();
+
+        // Handle object selection and movement
+        HandleObjectSelectionAndMovement();
+    }
+
+    private void UpdateCameraControl()
     {
         //Update Plane
         if (Input.touchCount >= 1)
@@ -82,6 +94,58 @@ public class CameraScript : MonoBehaviour
             }
         }
     }
+
+    private void HandleObjectSelectionAndMovement()
+    {
+        // Handle object selection and movement with touch input
+        if (Input.touchCount > 0)
+        {
+            Touch touch = Input.GetTouch(0); // Assuming you want to handle only the first touch
+
+            switch (touch.phase)
+            {
+                case TouchPhase.Began:
+                    // Raycast to detect which wall is touched
+                    RaycastHit hit;
+                    Ray ray = Camera.main.ScreenPointToRay(touch.position);
+
+                    if (Physics.Raycast(ray, out hit) && hit.collider.CompareTag("Moveable"))
+                    {
+                        // Check if the object touched has a Transform (assuming your walls have Transform components)
+                        selectedWallTransform = hit.collider.transform;
+
+                        // Calculate the offset between the object's position and the touch position
+                        offset = selectedWallTransform.position - Camera.main.ScreenToWorldPoint(new Vector3(touch.position.x, touch.position.y, selectedWallTransform.position.z));
+                    }
+                    else if (Physics.Raycast(ray, out hit) && hit.collider.CompareTag("Enemy"))
+                    {
+                        // Enemy death script
+                        hit.collider.gameObject.SetActive(false);
+                        audioSource.Play();
+                    }
+                    break;
+
+                case TouchPhase.Moved:
+                    if (selectedWallTransform != null)
+                    {
+                        Vector3 curScreenPoint = new Vector3(touch.position.x, touch.position.y, selectedWallTransform.position.z);
+                        Vector3 curPosition = Camera.main.ScreenToWorldPoint(curScreenPoint) + offset;
+
+                        // Update the object's position to follow the touch
+                        selectedWallTransform.position = curPosition;
+                    }
+                    break;
+
+                case TouchPhase.Ended:
+                    if (selectedWallTransform != null)
+                    {
+                        selectedWallTransform = null; // Deselect the wall when the touch ends
+                    }
+                    break;
+            }
+        }
+    }
+
     protected Vector3 PlanePositionDelta(Touch touch)
     {
         //not moved
