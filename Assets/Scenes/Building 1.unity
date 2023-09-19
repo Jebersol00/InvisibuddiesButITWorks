@@ -227,6 +227,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1529135454}
   - component: {fileID: 1529135453}
+  - component: {fileID: 1529135458}
   - component: {fileID: 1529135455}
   - component: {fileID: 1529135452}
   - component: {fileID: 1529135456}
@@ -431,6 +432,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1529135458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1529135451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8651a4108d4f6764880a208a0839cf6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectPrefab: {fileID: 5621588607944479328, guid: d250f3a08c221094bbbedf57bc902af6, type: 3}
+  numberOfObjectsToInstantiate: 4
 --- !u!1001 &1896265352
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -495,9 +510,33 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 276764727547313077, guid: 006bec4f235ff1748b8c12af902d1d99, type: 3}
+      propertyPath: m_TagString
+      value: SpawnPoint
+      objectReference: {fileID: 0}
+    - target: {fileID: 560707954875739280, guid: 006bec4f235ff1748b8c12af902d1d99, type: 3}
+      propertyPath: m_TagString
+      value: SpawnPoint
+      objectReference: {fileID: 0}
+    - target: {fileID: 673303060661693685, guid: 006bec4f235ff1748b8c12af902d1d99, type: 3}
+      propertyPath: m_TagString
+      value: SpawnPoint
+      objectReference: {fileID: 0}
+    - target: {fileID: 1250260781775035540, guid: 006bec4f235ff1748b8c12af902d1d99, type: 3}
+      propertyPath: m_TagString
+      value: SpawnPoint
+      objectReference: {fileID: 0}
+    - target: {fileID: 1957954657808748704, guid: 006bec4f235ff1748b8c12af902d1d99, type: 3}
+      propertyPath: m_TagString
+      value: SpawnPoint
+      objectReference: {fileID: 0}
     - target: {fileID: 3509205318541134335, guid: 006bec4f235ff1748b8c12af902d1d99, type: 3}
       propertyPath: m_Name
       value: BuildingOneHidingSpots
+      objectReference: {fileID: 0}
+    - target: {fileID: 3571410999764033787, guid: 006bec4f235ff1748b8c12af902d1d99, type: 3}
+      propertyPath: m_TagString
+      value: SpawnPoint
       objectReference: {fileID: 0}
     - target: {fileID: 5554636599077055525, guid: 006bec4f235ff1748b8c12af902d1d99, type: 3}
       propertyPath: m_RootOrder
@@ -542,6 +581,10 @@ PrefabInstance:
     - target: {fileID: 5554636599077055525, guid: 006bec4f235ff1748b8c12af902d1d99, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7305386282203724814, guid: 006bec4f235ff1748b8c12af902d1d99, type: 3}
+      propertyPath: m_TagString
+      value: SpawnPoint
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 006bec4f235ff1748b8c12af902d1d99, type: 3}
