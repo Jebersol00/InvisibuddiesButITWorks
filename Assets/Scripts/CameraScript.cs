@@ -14,6 +14,7 @@ public class CameraScript : MonoBehaviour
     private Vector3 offset;
     private Transform selectedWallTransform;
     public AudioSource audioSource;
+    public ScoringCorrect sc;
 
     private void Awake()
     {
@@ -121,6 +122,7 @@ public class CameraScript : MonoBehaviour
                     {
                         // Enemy death script
                         hit.collider.gameObject.SetActive(false);
+                        sc.EnemyDefeated();
                         audioSource.Play();
                     }
                     break;

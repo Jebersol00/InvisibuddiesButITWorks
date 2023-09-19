@@ -8,7 +8,7 @@ public class SpawnEnemies : MonoBehaviour
 
     public int numberOfObjectsToInstantiate = 4; // Set the number of objects to instantiate
 
-    void Start()
+    void Awake()
     {
         // Find all empty GameObjects in the scene with the "SpawnPoint" tag
         GameObject[] spawnPoints = GameObject.FindGameObjectsWithTag("SpawnPoint");
