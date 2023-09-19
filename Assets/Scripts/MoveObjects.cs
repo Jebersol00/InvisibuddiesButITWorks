@@ -7,6 +7,7 @@ public class MoveObjects : MonoBehaviour
     private Vector3 offset;
     private Transform selectedWallTransform;
     public AudioSource audioSource;
+    public GameObject sc;
 
 
     private void Update()
@@ -31,6 +32,7 @@ public class MoveObjects : MonoBehaviour
                 //Enemy death script
                 hit.collider.gameObject.SetActive(false);
                 audioSource.Play();
+                sc.GetComponent<ScoringCorrect>().enemiesRemaining--;
             }
         }
         else if (Input.GetMouseButton(0) && selectedWallTransform != null)
@@ -44,7 +46,6 @@ public class MoveObjects : MonoBehaviour
         else if (Input.GetMouseButtonUp(0) && selectedWallTransform != null)
         {
             selectedWallTransform = null; // Deselect the wall when the mouse button is released
-            Debug.Log("Ur Safe");
         }
     }
 }

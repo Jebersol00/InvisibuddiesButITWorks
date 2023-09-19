@@ -5,39 +5,26 @@ using TMPro;
 
 public class ScoringCorrect : MonoBehaviour
 {
-public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI scoreText;
 
     public int totalEnemies;
-    private int enemiesRemaining;
+    public int enemiesRemaining;
+
+    public GameObject button;
+    public GameObject victory;
 
     void Start()
     {
-        InitializeScore();
-    }
-
-    void Update()
-    {
-        // You can call this function whenever you want to update the score,
-        // such as in response to a game event or a specific condition.
-        UpdateScore();
-    }
-
-    void InitializeScore()
-    {
-        GameObject[] taggedObjects = GameObject.FindGameObjectsWithTag("Enemy");
-        totalEnemies = taggedObjects.Length;
         enemiesRemaining = totalEnemies;
-        UpdateScore();
     }
 
-    void UpdateScore()
+    void FixedUpdate()
     {
         scoreText.text = enemiesRemaining + " out of " + totalEnemies + " enemies remain";
-    }
-
-    public void EnemyDefeated()
-    {
-        enemiesRemaining--;
-        UpdateScore();
+        if(enemiesRemaining == 0)
+        {
+            button.SetActive(true);
+            victory.SetActive(true);
+        }
     }
 }

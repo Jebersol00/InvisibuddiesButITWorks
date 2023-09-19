@@ -23,4 +23,9 @@ public class LevelSwap : MonoBehaviour
     public void MoveToLevel2(){
         SceneManager.LoadScene(2);
     }
+    public void backToStart()
+    {
+        Debug.Log("Ran");
+        SceneManager.LoadScene(0);
+    }
 }
