@@ -25,7 +25,10 @@ public class LevelSwap : MonoBehaviour
     }
     public void backToStart()
     {
-        Debug.Log("Ran");
         SceneManager.LoadScene(0);
+    }
+    public void optionsScreen()
+    {
+        SceneManager.LoadScene(3);
     }
 }
