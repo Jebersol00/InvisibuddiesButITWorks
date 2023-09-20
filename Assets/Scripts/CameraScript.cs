@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CameraScript : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class CameraScript : MonoBehaviour
     private Transform selectedWallTransform;
     public AudioSource audioSource;
     public GameObject sc;
+    private bool cameraTog;
 
     private void Awake()
     {
@@ -29,12 +31,26 @@ public class CameraScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Handle camera control
-        UpdateCameraControl();
+        if(cameraTog == false)
+        {
+            UpdateCameraControl();
+        }
+        //UpdateCameraControl();
 
-        // Handle object selection and movement
-        HandleObjectSelectionAndMovement();
     }
+
+    public void cameraToggle(bool tog)
+    {
+        if(tog == true)
+        {
+            cameraTog = true;
+        }
+        else if(tog == false)
+        {
+            cameraTog = false;
+        }
+    }
+
 
     private void UpdateCameraControl()
     {
@@ -140,14 +156,6 @@ public class CameraScript : MonoBehaviour
         }
     }
 
-    private void HandleObjectSelectionAndMovement()
-    {
-        // Handle object selection and movement with touch input
-        if (Input.touchCount == 1)
-        {
-            
-        }
-    }
 
     protected Vector3 PlanePositionDelta(Touch touch)
     {
