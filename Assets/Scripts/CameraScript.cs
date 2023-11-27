@@ -18,6 +18,7 @@ public class CameraScript : MonoBehaviour
     public GameObject sc;
     private bool cameraTog;
 
+    Settings set = new Settings();
     private void Awake()
     {
         if(camera == null)
@@ -26,6 +27,7 @@ public class CameraScript : MonoBehaviour
         }
 
         cameraStartPosition = camera.transform.position;
+
     }
 
     // Update is called once per frame
@@ -36,7 +38,7 @@ public class CameraScript : MonoBehaviour
             UpdateCameraControl();
         }
         //UpdateCameraControl();
-
+        set.sensitivity = decreaseCameraPanSpeed;
     }
 
     public void cameraToggle(bool tog)
@@ -133,26 +135,29 @@ public class CameraScript : MonoBehaviour
             {
                 return;
             }
-
-            //move camera amount the mid ray
-            Vector3 camPositionBeforeAdjustment = camera.transform.position;
-            camera.transform.position = Vector3.LerpUnclamped(pos1, camera.transform.position, 1 / zoom);
-
-            if (camera.transform.position.y > (cameraStartPosition.y + cameraUpperHeightBound))
+            else
             {
-                camera.transform.position = camPositionBeforeAdjustment;
+                //move camera amount the mid ray
+                Vector3 camPositionBeforeAdjustment = camera.transform.position;
+                camera.transform.position = Vector3.LerpUnclamped(pos1, camera.transform.position, 1 / (zoom / decreaseCameraPanSpeed));
+
+                if (camera.transform.position.y > (cameraStartPosition.y + cameraUpperHeightBound))
+                {
+                    camera.transform.position = camPositionBeforeAdjustment;
+                }
+
+                if (camera.transform.position.y < (cameraStartPosition.y - cameraLowerHeightBound) || camera.transform.position.y <= 1)
+                {
+                    camera.transform.position = camPositionBeforeAdjustment;
+                }
+
+                //rotate
+                if (rotate && pos2b != pos2)
+                {
+                    camera.transform.RotateAround(pos1, plane.normal, Vector3.SignedAngle(pos2 - pos1, pos2b - pos1b, plane.normal) / decreaseCameraPanSpeed);
+                }
             }
 
-            if (camera.transform.position.y < (cameraStartPosition.y - cameraLowerHeightBound) || camera.transform.position.y <= 1)
-            {
-                camera.transform.position = camPositionBeforeAdjustment;
-            }
-
-            //rotate
-            if (rotate && pos2b != pos2)
-            {
-                camera.transform.RotateAround(pos1, plane.normal, Vector3.SignedAngle(pos2 - pos1, pos2b - pos1b, plane.normal) / decreaseCameraPanSpeed);
-            }
         }
     }
 
