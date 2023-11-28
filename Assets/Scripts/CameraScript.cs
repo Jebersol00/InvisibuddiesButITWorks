@@ -18,7 +18,6 @@ public class CameraScript : MonoBehaviour
     public GameObject sc;
     private bool cameraTog;
 
-    Settings set = new Settings();
     private void Awake()
     {
         if(camera == null)
@@ -38,7 +37,7 @@ public class CameraScript : MonoBehaviour
             UpdateCameraControl();
         }
         //UpdateCameraControl();
-        set.sensitivity = decreaseCameraPanSpeed;
+        PlayerStats.sens = decreaseCameraPanSpeed;
     }
 
     public void cameraToggle(bool tog)
