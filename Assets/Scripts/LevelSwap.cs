@@ -5,18 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class LevelSwap : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void MoveToLevel1(){
         SceneManager.LoadScene(1);
     }
@@ -30,5 +18,9 @@ public class LevelSwap : MonoBehaviour
     public void optionsScreen()
     {
         SceneManager.LoadScene(3);
+    }
+    public void LevelScreen()
+    {
+        SceneManager.LoadScene(4);
     }
 }
