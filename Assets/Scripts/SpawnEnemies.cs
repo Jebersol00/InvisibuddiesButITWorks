@@ -38,7 +38,10 @@ public class SpawnEnemies : MonoBehaviour
         // Instantiate objects at the positions of the shuffled spawn points
         for(int i = 0; i < numberOfObjectsToInstantiate; i++)
         {
-            enemies[i] = Instantiate(objectPrefab, spawnPoints[i].transform.position + new Vector3(0f, 0.5f, 0f), Quaternion.identity);
+            if (currentScene.buildIndex == 1 || currentScene.buildIndex == 2)
+                enemies[i] = Instantiate(objectPrefab, spawnPoints[i].transform.position + new Vector3(0f, 0.5f, 0f), Quaternion.identity);
+            else
+                enemies[i] = Instantiate(objectPrefab, spawnPoints[i].transform.position + new Vector3(0f, 0.04f, 0f), Quaternion.identity);
             enemies[i].transform.parent = this.gameObject.transform;
             empty[i] = false;
         }
