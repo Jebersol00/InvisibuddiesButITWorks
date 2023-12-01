@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 public class SpawnEnemies : MonoBehaviour
 {
@@ -17,6 +18,7 @@ public class SpawnEnemies : MonoBehaviour
 
     void Awake()
     {
+        Scene currentScene = SceneManager.GetActiveScene();
         // Find all empty GameObjects in the scene with the "SpawnPoint" tag
         GameObject[] spawnPoints = GameObject.FindGameObjectsWithTag("SpawnPoint");
 
@@ -41,7 +43,10 @@ public class SpawnEnemies : MonoBehaviour
             empty[i] = false;
         }
 
-        //StartCoroutine(MoveEnemyRoutine());
+        if (currentScene.buildIndex == 1|| currentScene.buildIndex == 2)
+        {
+            StartCoroutine(MoveEnemyRoutine());
+        }
     }
     IEnumerator MoveEnemyRoutine()
     {

@@ -122,7 +122,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: 3c27303c9c37cc047a04e904a12f31b6, type: 2}
 --- !u!1 &18945011
 GameObject:
   m_ObjectHideFlags: 0
@@ -4245,6 +4245,22 @@ PrefabInstance:
       propertyPath: m_TagString
       value: SpawnPoint
       objectReference: {fileID: 0}
+    - target: {fileID: 2962792583689419173, guid: 93a9b3df0070d7e42828fd849b335be7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 6.706
+      objectReference: {fileID: 0}
+    - target: {fileID: 2962792583689419173, guid: 93a9b3df0070d7e42828fd849b335be7, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -3.552
+      objectReference: {fileID: 0}
+    - target: {fileID: 3817402363929910770, guid: 93a9b3df0070d7e42828fd849b335be7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -4.516
+      objectReference: {fileID: 0}
+    - target: {fileID: 3817402363929910770, guid: 93a9b3df0070d7e42828fd849b335be7, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2.805
+      objectReference: {fileID: 0}
     - target: {fileID: 3844487884141170099, guid: 93a9b3df0070d7e42828fd849b335be7, type: 3}
       propertyPath: m_TagString
       value: SpawnPoint
@@ -4252,6 +4268,26 @@ PrefabInstance:
     - target: {fileID: 3862082917039862819, guid: 93a9b3df0070d7e42828fd849b335be7, type: 3}
       propertyPath: m_TagString
       value: SpawnPoint
+      objectReference: {fileID: 0}
+    - target: {fileID: 5297807613615793103, guid: 93a9b3df0070d7e42828fd849b335be7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 6.622
+      objectReference: {fileID: 0}
+    - target: {fileID: 6526562428132665727, guid: 93a9b3df0070d7e42828fd849b335be7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 4.68
+      objectReference: {fileID: 0}
+    - target: {fileID: 6526562428132665727, guid: 93a9b3df0070d7e42828fd849b335be7, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.147
+      objectReference: {fileID: 0}
+    - target: {fileID: 7245034807710666230, guid: 93a9b3df0070d7e42828fd849b335be7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.498
+      objectReference: {fileID: 0}
+    - target: {fileID: 7245034807710666230, guid: 93a9b3df0070d7e42828fd849b335be7, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.488
       objectReference: {fileID: 0}
     - target: {fileID: 7646295945564803951, guid: 93a9b3df0070d7e42828fd849b335be7, type: 3}
       propertyPath: m_TagString
