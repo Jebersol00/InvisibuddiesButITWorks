@@ -23,4 +23,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/LoadLevels.unity
     guid: c3e394eaa8af8ae41b5252ffe3531b53
+  - enabled: 1
+    path: Assets/Scenes/AR B1.unity
+    guid: b7b41799962383844a00a908217dfc08
+  - enabled: 1
+    path: Assets/Scenes/AR B2.unity
+    guid: c8be16937eef58f409fef0d434a9d5ed
   m_configObjects: {}

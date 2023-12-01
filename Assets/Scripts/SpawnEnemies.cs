@@ -41,7 +41,7 @@ public class SpawnEnemies : MonoBehaviour
             empty[i] = false;
         }
 
-        StartCoroutine(MoveEnemyRoutine());
+        //StartCoroutine(MoveEnemyRoutine());
     }
     IEnumerator MoveEnemyRoutine()
     {

@@ -23,4 +23,14 @@ public class LevelSwap : MonoBehaviour
     {
         SceneManager.LoadScene(4);
     }
+
+    public void AR1()
+    {
+        SceneManager.LoadScene(5);
+    }
+
+    public void AR2()
+    {
+        SceneManager.LoadScene(6);
+    }
 }
